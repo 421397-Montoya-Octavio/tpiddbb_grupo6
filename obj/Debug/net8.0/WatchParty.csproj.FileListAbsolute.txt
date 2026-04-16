@@ -1,0 +1,119 @@
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\WatchParty.csproj.AssemblyReference.cache
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\WatchParty.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\WatchParty.AssemblyInfoInputs.cache
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\WatchParty.AssemblyInfo.cs
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\WatchParty.csproj.CoreCompileInputs.cache
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\WatchParty.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\WatchParty.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\appsettings.json
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\WatchParty.staticwebassets.endpoints.json
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\WatchParty.exe
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\WatchParty.deps.json
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\WatchParty.runtimeconfig.json
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\WatchParty.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\WatchParty.pdb
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\AWSSDK.Core.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\AWSSDK.SecurityToken.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\DnsClient.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\MongoDB.Driver.Core.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\MongoDB.Libmongocrypt.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\Snappier.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\runtimes\win\native\mongocrypt.dll
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\scopedcss\bundle\WatchParty.styles.css
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\WatchParty.csproj.Up2Date
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\WatchParty.dll
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\refint\WatchParty.dll
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\WatchParty.pdb
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\WatchParty.genruntimeconfig.cache
+C:\Users\Martín\Desktop\TPI\obj\Debug\net8.0\ref\WatchParty.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\Martín\Desktop\TPI\bin\Debug\net8.0\StackExchange.Redis.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\appsettings.json
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\WatchParty.staticwebassets.endpoints.json
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\WatchParty.exe
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\WatchParty.deps.json
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\WatchParty.runtimeconfig.json
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\WatchParty.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\WatchParty.pdb
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\AWSSDK.Core.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\AWSSDK.SecurityToken.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\DnsClient.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\MongoDB.Driver.Core.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\MongoDB.Libmongocrypt.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\Snappier.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\StackExchange.Redis.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\bin\Debug\net8.0\runtimes\win\native\mongocrypt.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\WatchParty.csproj.AssemblyReference.cache
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\WatchParty.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\WatchParty.AssemblyInfoInputs.cache
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\WatchParty.AssemblyInfo.cs
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\WatchParty.csproj.CoreCompileInputs.cache
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\WatchParty.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\WatchParty.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\scopedcss\bundle\WatchParty.styles.css
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\staticwebassets\msbuild.WatchParty.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\staticwebassets\msbuild.WatchParty.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\staticwebassets\msbuild.build.WatchParty.props
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.WatchParty.props
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.WatchParty.props
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\WatchParty.csproj.Up2Date
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\WatchParty.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\refint\WatchParty.dll
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\WatchParty.pdb
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\WatchParty.genruntimeconfig.cache
+C:\Users\pablo\TUP\CUATRIMESTRE III\BASE DE DATOS II\TPI1\TPI\TPI\obj\Debug\net8.0\ref\WatchParty.dll
