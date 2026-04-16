@@ -9,43 +9,39 @@ using WatchParty.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- CONFIGURACIÓN CRÍTICA PARA RAILWAY ---
-// Esto permite que el servidor use el puerto que Railway le asigne dinámicamente
+// --- CONFIGURACIÓN PARA RAILWAY (No tocar) ---
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 builder.WebHost.UseUrls($"http://*:{port}");
 
-// --- Servicios y Controladores ---
+// --- Servicios y Controllers ---
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // --- MongoDB ---
 builder.Services.AddSingleton<IConnectionStringProvider, ConfigurationConnectionStringProvider>();
-builder.Services.AddSingleton<IMongoDbContext, MongoDbContext>();
-builder.Services.AddSingleton<MongoDbContext>(sp => (MongoDbContext)sp.GetRequiredService<IMongoDbContext>());
+builder.Services.AddSingleton<MongoDbContext>();
 
-// --- Inyección de Dependencias (Ajustado a los nombres de este proyecto) ---
+// --- Inyección de Dependencias ---
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<ISalaRepository, SalaRepository>();
-builder.Services.AddScoped<IPeliculaRepository, PeliculaRepository>();
-builder.Services.AddScoped<IVotacionRepository, VotacionRepository>();
-builder.Services.AddScoped<IMensajeChatRepository, MensajeChatRepository>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<ISalaService, SalaService>();
-builder.Services.AddSingleton<IRedisService, RedisService>();
+builder.Services.AddScoped<IVotacionRepository, VotacionRepository>();
+builder.Services.AddScoped<IPeliculaRepository, PeliculaRepository>();
+builder.Services.AddScoped<IMensajeChatRepository, MensajeChatRepository>();
 builder.Services.AddScoped<IVotacionService, VotacionService>();
 builder.Services.AddScoped<IPeliculaService, PeliculaService>();
 builder.Services.AddScoped<IMensajeChatService, MensajeChatService>();
+builder.Services.AddSingleton<IRedisService, RedisService>();
 
-// --- SignalR con Redis Backplane (Para tus 100 usuarios) ---
-var redisUrl = builder.Configuration.GetConnectionString("Redis");
-builder.Services
-    .AddSignalR()
-    .AddStackExchangeRedis(redisUrl!, options => {
-        options.Configuration.ChannelPrefix = RedisChannel.Literal("WatchPartyChat");
-    });
+// --- SignalR con Redis para 100+ usuarios ---
+var redisUrl = builder.Configuration.GetSection("ConnectionStrings:Redis").Value;
+builder.Services.AddSignalR().AddStackExchangeRedis(redisUrl!, options => {
+    options.Configuration.ChannelPrefix = RedisChannel.Literal("WatchPartyChat");
+});
 
-// --- JWT Authentication ---
+// --- JWT & CORS ---
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options => {
         options.TokenValidationParameters = new TokenValidationParameters {
@@ -59,10 +55,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-// --- CORS (Habilitado para tu GitHub Pages) ---
 builder.Services.AddCors(options => {
     options.AddPolicy("AllowFrontend", policy => {
-        policy.WithOrigins("https://421397-montoya-octavio.github.io")
+        policy.WithOrigins("https://421397-montoya-octavio.github.io") // Tu link de GitHub Pages
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
@@ -71,14 +66,13 @@ builder.Services.AddCors(options => {
 
 var app = builder.Build();
 
-// --- Middleware Pipeline ---
 app.UseCors("AllowFrontend");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.MapHub<ChatHub>("/chatHub");
 
-// Inicialización de Redis antes de arrancar
+// Inicialización de Redis
 var redisService = app.Services.GetRequiredService<IRedisService>();
 await redisService.Inicializar();
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eK2Va2dVhCA=",
+  "dgSpecHash": "KU+kzvCT66g=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Octam\\Desktop\\tpiddbb_grupo6\\WatchParty.csproj",
+  "projectFilePath": "C:\\Users\\Octam\\Desktop\\Repos_Git\\TPIDDBB\\tpiddbb_grupo6\\WatchParty.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Octam\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Octam\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",

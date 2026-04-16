@@ -2059,11 +2059,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Octam\\Desktop\\tpiddbb_grupo6\\WatchParty.csproj",
+      "projectUniqueName": "C:\\Users\\Octam\\Desktop\\Repos_Git\\TPIDDBB\\tpiddbb_grupo6\\WatchParty.csproj",
       "projectName": "WatchParty",
-      "projectPath": "C:\\Users\\Octam\\Desktop\\tpiddbb_grupo6\\WatchParty.csproj",
+      "projectPath": "C:\\Users\\Octam\\Desktop\\Repos_Git\\TPIDDBB\\tpiddbb_grupo6\\WatchParty.csproj",
       "packagesPath": "C:\\Users\\Octam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Octam\\Desktop\\tpiddbb_grupo6\\obj\\",
+      "outputPath": "C:\\Users\\Octam\\Desktop\\Repos_Git\\TPIDDBB\\tpiddbb_grupo6\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
