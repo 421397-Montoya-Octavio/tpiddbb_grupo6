@@ -19,8 +19,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // --- MongoDB ---
+// --- MongoDB ---
 builder.Services.AddSingleton<IConnectionStringProvider, ConfigurationConnectionStringProvider>();
-builder.Services.AddSingleton<MongoDbContext>();
+builder.Services.AddSingleton<IMongoDbContext, MongoDbContext>();
 
 // --- Inyección de Dependencias ---
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();

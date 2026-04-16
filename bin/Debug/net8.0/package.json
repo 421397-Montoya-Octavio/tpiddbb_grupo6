@@ -1,0 +1,21 @@
+{
+  "name": "tpiddbb_grupo6",
+  "version": "1.0.0",
+  "description": "repo para el tpi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/421397-Montoya-Octavio/tpiddbb_grupo6.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/421397-Montoya-Octavio/tpiddbb_grupo6/issues"
+  },
+  "homepage": "https://github.com/421397-Montoya-Octavio/tpiddbb_grupo6#readme"
+}
