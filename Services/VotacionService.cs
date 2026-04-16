@@ -70,16 +70,26 @@ public class VotacionService : IVotacionService
             return null;
         }
 
+        if (votacion.UsuariosQueVotaron.ContainsKey(usuarioId))
+            return MapToDto(votacion);
+
         var opcionValida = votacion.Opciones.Any(o => o.PeliculaId == dto.PeliculaId);
         if (!opcionValida) return null;
+
+        votacion.UsuariosQueVotaron[usuarioId] = dto.PeliculaId;
 
         if (votacion.VotosPorOpcion.ContainsKey(dto.PeliculaId))
         {
             votacion.VotosPorOpcion[dto.PeliculaId]++;
         }
+        else
+        {
+            votacion.VotosPorOpcion[dto.PeliculaId] = 1;
+        }
 
-        var updated = await _votacionRepository.UpdateAsync(dto.VotacionId, votacion);
-        return updated == null ? null : MapToDto(updated);
+        await _votacionRepository.UpdateAsync(dto.VotacionId, votacion);
+
+        return MapToDto(votacion);
     }
 
     public async Task<VotacionDto?> FinalizarVotacionAsync(string id)
@@ -92,6 +102,18 @@ public class VotacionService : IVotacionService
 
         var updated = await _votacionRepository.UpdateAsync(id, votacion);
         return updated == null ? null : MapToDto(updated);
+    }
+
+    public async Task<(bool yaVoto, string? peliculaId)> GetVotoUsuarioAsync(string votacionId, string usuarioId)
+    {
+        var votacion = await _votacionRepository.GetByIdAsync(votacionId);
+        if (votacion == null) return (false, null);
+        
+        if (votacion.UsuariosQueVotaron.TryGetValue(usuarioId, out var peliculaId))
+        {
+            return (true, peliculaId);
+        }
+        return (false, null);
     }
 
     private static VotacionDto MapToDto(Votacion votacion) => new()

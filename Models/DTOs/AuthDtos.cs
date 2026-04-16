@@ -9,7 +9,7 @@ public class RegisterDto
 
 public class LoginDto
 {
-    public string Email { get; set; } = null!;
+    public string Identificador { get; set; } = null!;
     public string Password { get; set; } = null!;
 }
 

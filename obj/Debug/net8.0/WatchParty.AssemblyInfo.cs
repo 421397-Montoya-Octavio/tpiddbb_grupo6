@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WatchParty")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e2477f68657454577ebb8a137d64b699ead4eb8")]
 [assembly: System.Reflection.AssemblyProductAttribute("WatchParty")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WatchParty")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

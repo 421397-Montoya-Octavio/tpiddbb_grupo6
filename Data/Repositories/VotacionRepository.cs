@@ -5,9 +5,9 @@ namespace WatchParty.Data.Repositories;
 
 public class VotacionRepository : IVotacionRepository
 {
-    private readonly MongoDbContext _context;
+    private readonly IMongoDbContext _context;
 
-    public VotacionRepository(MongoDbContext context)
+    public VotacionRepository(IMongoDbContext context)
     {
         _context = context;
     }

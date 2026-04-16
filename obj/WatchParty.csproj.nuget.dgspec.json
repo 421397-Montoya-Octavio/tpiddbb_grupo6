@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pablo\\TUP\\CUATRIMESTRE III\\BASE DE DATOS II\\TPI1\\TPI\\TPI\\WatchParty.csproj": {}
+    "C:\\Users\\Octam\\Desktop\\tpiddbb_grupo6\\WatchParty.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pablo\\TUP\\CUATRIMESTRE III\\BASE DE DATOS II\\TPI1\\TPI\\TPI\\WatchParty.csproj": {
+    "C:\\Users\\Octam\\Desktop\\tpiddbb_grupo6\\WatchParty.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pablo\\TUP\\CUATRIMESTRE III\\BASE DE DATOS II\\TPI1\\TPI\\TPI\\WatchParty.csproj",
+        "projectUniqueName": "C:\\Users\\Octam\\Desktop\\tpiddbb_grupo6\\WatchParty.csproj",
         "projectName": "WatchParty",
-        "projectPath": "C:\\Users\\pablo\\TUP\\CUATRIMESTRE III\\BASE DE DATOS II\\TPI1\\TPI\\TPI\\WatchParty.csproj",
-        "packagesPath": "C:\\Users\\pablo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pablo\\TUP\\CUATRIMESTRE III\\BASE DE DATOS II\\TPI1\\TPI\\TPI\\obj\\",
+        "projectPath": "C:\\Users\\Octam\\Desktop\\tpiddbb_grupo6\\WatchParty.csproj",
+        "packagesPath": "C:\\Users\\Octam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Octam\\Desktop\\tpiddbb_grupo6\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\pablo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Octam\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -60,6 +59,10 @@
               "version": "[8.0.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.AspNetCore.SignalR.StackExchangeRedis": {
               "target": "Package",
               "version": "[8.0.0, )"
             },

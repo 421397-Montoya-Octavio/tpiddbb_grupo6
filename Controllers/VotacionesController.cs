@@ -33,6 +33,17 @@ public class VotacionesController : ControllerBase
         return Ok(votacion);
     }
 
+    [HttpGet("{id}/voto")]
+    [Authorize]
+    public async Task<ActionResult<object>> GetVotoUsuario(string id)
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (string.IsNullOrEmpty(userId)) return Unauthorized();
+        
+        var (yaVoto, peliculaId) = await _service.GetVotoUsuarioAsync(id, userId);
+        return Ok(new { yaVoto, peliculaId });
+    }
+
     [HttpPost]
     [Authorize]
     public async Task<ActionResult<VotacionDto>> Create([FromBody] CreateVotacionDto dto)

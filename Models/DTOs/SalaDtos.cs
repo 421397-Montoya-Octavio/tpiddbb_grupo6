@@ -7,6 +7,8 @@ public class SalaDto
     public string Estado { get; set; } = null!;
     public string? PeliculaActualId { get; set; }
     public string? DuenoId { get; set; }
+    public string? DuenoUsername { get; set; }
+    public List<string> PeliculasParaVotar { get; set; } = new();
     public DateTime FechaCreacion { get; set; }
 }
 
@@ -19,4 +21,5 @@ public class UpdateSalaDto
 {
     public string? Estado { get; set; }
     public string? PeliculaActualId { get; set; }
+    public List<string>? PeliculasParaVotar { get; set; }
 }

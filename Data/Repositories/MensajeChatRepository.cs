@@ -5,9 +5,9 @@ namespace WatchParty.Data.Repositories;
 
 public class MensajeChatRepository : IMensajeChatRepository
 {
-    private readonly MongoDbContext _context;
+    private readonly IMongoDbContext _context;
 
-    public MensajeChatRepository(MongoDbContext context)
+    public MensajeChatRepository(IMongoDbContext context)
     {
         _context = context;
     }

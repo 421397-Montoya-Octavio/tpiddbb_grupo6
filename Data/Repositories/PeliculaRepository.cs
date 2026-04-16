@@ -5,9 +5,9 @@ namespace WatchParty.Data.Repositories;
 
 public class PeliculaRepository : IPeliculaRepository
 {
-    private readonly MongoDbContext _context;
+    private readonly IMongoDbContext _context;
 
-    public PeliculaRepository(MongoDbContext context)
+    public PeliculaRepository(IMongoDbContext context)
     {
         _context = context;
     }

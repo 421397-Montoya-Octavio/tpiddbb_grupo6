@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WatchParty - Sala</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <div class="header-left">
+                <h1 class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">WatchParty</a></h1>
+            </div>
+            <div class="header-center">
+                <div id="sala-info" class="sala-info">
+                    <span class="sala-label">Sala:</span>
+                    <span id="sala-codigo" class="sala-codigo"></span>
+                    <span id="sala-estado" class="sala-estado"></span>
+                </div>
+            </div>
+            <div class="header-right">
+                <button id="mobile-menu-btn" class="mobile-menu-btn" style="display: none;">☰</button>
+                <div id="user-guest" class="user-menu">
+                    <button id="btn-login" class="btn btn-secondary">Iniciar Sesión</button>
+                    <button id="btn-register" class="btn btn-primary">Registrarse</button>
+                </div>
+                <div id="user-logged" class="user-menu" style="display: none;">
+                    <span id="username-display" class="username"></span>
+                    <button id="btn-logout" class="btn btn-secondary">Cerrar Sesión</button>
+                </div>
+            </div>
+        </header>
+
+        <div id="auth-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="modal-close" id="close-auth">&times;</span>
+                <div id="login-form-container">
+                    <h2>Iniciar Sesión</h2>
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="login-identifier">Usuario o Email</label>
+                            <input type="text" id="login-identifier" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Contraseña</label>
+                            <input type="password" id="login-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                        <p class="form-switch">¿No tienes cuenta? <a href="#" id="switch-to-register">Regístrate</a></p>
+                    </form>
+                </div>
+                <div id="register-form-container" style="display: none;">
+                    <h2>Registrarse</h2>
+                    <form id="register-form">
+                        <div class="form-group">
+                            <label for="register-username">Usuario</label>
+                            <input type="text" id="register-username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <input type="email" id="register-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Contraseña</label>
+                            <input type="password" id="register-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registrarse</button>
+                        <p class="form-switch">¿Ya tienes cuenta? <a href="#" id="switch-to-login">Inicia sesión</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div id="sala-view" class="view">
+                <div class="sala-layout">
+                    <div id="qr-modal" class="modal" style="display: none">
+                        <div class="modal-content qr-modal-content">
+                            <span class="modal-close" id="close-qr">&times;</span>
+                            <h2>Código QR de la Sala</h2>
+                            <div id="qr-code-container"></div>
+                            <p class="qr-codigo">Código: <strong id="qr-codigo-texto"></strong></p>
+                            <button id="btn-copy-link" class="btn btn-secondary">Copiar Link</button>
+                        </div>
+                    </div>
+
+                    <div class="video-section">
+                        <div class="sala-header-bar">
+                            <div class="sala-info-compacta">
+                                <span class="sala-codigo-badge" id="sala-codigo-badge"></span>
+                                <button id="btn-show-qr" class="btn btn-small btn-secondary">📱 QR</button>
+                                <button id="btn-copy-sala-link" class="btn btn-small btn-secondary">🔗 Copiar Link</button>
+                            </div>
+                            <div class="signalr-status">
+                                <span id="signalr-indicator" class="signalr-indicator offline"></span>
+                                <span id="signalr-text" class="signalr-text">Desconectado</span>
+                            </div>
+                            <div class="participantes-info">
+                                <span class="participantes-label">Espectadores:</span>
+                                <span id="participantes-count" class="participantes-count">0</span>
+                                <div id="participantes-list" class="participantes-list"></div>
+                            </div>
+                            <button id="btn-cerrar-sala" class="btn btn-small btn-danger">✕ Salir</button>
+                        </div>
+                        
+                        <div class="video-container">
+                            <div id="player-wrapper" class="player-wrapper">
+                                <div class="video-placeholder">
+                                    <p>Esperando a que inicie la reproducción...</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-controls">
+                            <div class="now-playing">
+                                <span class="label">Reproduciendo:</span>
+                                <span id="current-movie-title" class="movie-title">-</span>
+                            </div>
+                            <div class="video-actions">
+                                <button id="btn-elegir-peliculas" class="btn btn-small btn-secondary">🎬 Elegir Películas</button>
+                                <button id="btn-iniciar-votacion" class="btn btn-small btn-primary" style="display: none;">🗳️ Iniciar Votación</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-section">
+                        <div class="chat-header">
+                            <h3>Chat en Vivo</h3>
+                        </div>
+                        <div id="chat-messages" class="chat-messages">
+                            <div class="chat-empty">Los mensajes aparecerán aquí</div>
+                        </div>
+                        <div class="chat-input-area">
+                            <div id="chat-input-container" class="chat-input-container">
+                                <input type="text" id="chat-input" placeholder="Escribe un mensaje..." disabled>
+                                <button id="btn-enviar-mensaje" class="btn-send" disabled>Enviar</button>
+                            </div>
+                            <div id="chat-login-prompt" class="chat-login-prompt">
+                                <button id="btn-login-chat" class="btn btn-secondary btn-small">Inicia sesión para chatear</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="votacion-panel" class="votacion-panel" style="display: none;">
+                    <div class="votacion-header">
+                        <h3>¡Vota la próxima película!</h3>
+                        <button id="btn-cerrar-votacion" class="btn btn-small btn-secondary">✕</button>
+                        <div class="votacion-timer-display">
+                            <span id="votacion-tiempo">Tiempo restante: </span>
+                            <span id="votacion-tiempo-restante">2:00</span>
+                        </div>
+                    </div>
+                    <div id="votacion-opciones" class="votacion-opciones">
+                        </div>
+                    <div id="votacion-resultado" class="votacion-resultado" style="display: none;">
+                        <h4>Resultados de votación</h4>
+                        <div id="votacion-resultados-lista"></div>
+                    </div>
+                </div>
+
+                <div id="peliculas-modal" class="modal" style="display: none;">
+                    <div class="modal-content peliculas-modal-content">
+                        <span class="modal-close" id="close-peliculas">&times;</span>
+                        <h2>Elige una Película</h2>
+                        <div id="peliculas-list" class="peliculas-grid"></div>
+                    </div>
+                </div>
+
+                <div id="seleccionar-votacion-modal" class="modal" style="display: none;">
+                    <div class="modal-content peliculas-modal-content">
+                        <span class="modal-close" id="close-seleccionar-votacion">&times;</span>
+                        <h2>Seleccionar Películas para Votación</h2>
+                        <p id="seleccion-contador" style="color: var(--color-text-secondary); margin-bottom: 16px;">Selecciona entre 3 y 6 películas</p>
+                        <div id="peliculas-seleccion-grid" class="peliculas-grid"></div>
+                        <div style="margin-top: 16px; text-align: center;">
+                            <button id="btn-confirmar-seleccion" class="btn btn-primary" disabled>Confirmar Selección</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="toast-container" class="toast-container"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="sala.js"></script>
+</body>
+</html>

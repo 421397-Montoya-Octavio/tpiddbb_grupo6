@@ -9,4 +9,5 @@ public interface IVotacionService
     Task<VotacionDto> CreateAsync(CreateVotacionDto dto);
     Task<VotacionDto?> VotarAsync(string usuarioId, VotarDto dto);
     Task<VotacionDto?> FinalizarVotacionAsync(string id);
+    Task<(bool yaVoto, string? peliculaId)> GetVotoUsuarioAsync(string votacionId, string usuarioId);
 }

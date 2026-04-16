@@ -7,28 +7,35 @@ namespace WatchParty.Services;
 public class SalaService : ISalaService
 {
     private readonly ISalaRepository _repository;
+    private readonly IUsuarioRepository _usuarioRepository;
 
-    public SalaService(ISalaRepository repository)
+    public SalaService(ISalaRepository repository, IUsuarioRepository usuarioRepository)
     {
         _repository = repository;
+        _usuarioRepository = usuarioRepository;
     }
 
     public async Task<IEnumerable<SalaDto>> GetAllAsync()
     {
         var salas = await _repository.GetAllAsync();
-        return salas.Select(MapToDto);
+        var dtos = new List<SalaDto>();
+        foreach (var sala in salas)
+        {
+            dtos.Add(await MapToDtoAsync(sala));
+        }
+        return dtos;
     }
 
     public async Task<SalaDto?> GetByIdAsync(string id)
     {
         var sala = await _repository.GetByIdAsync(id);
-        return sala == null ? null : MapToDto(sala);
+        return sala == null ? null : await MapToDtoAsync(sala);
     }
 
     public async Task<SalaDto?> GetByCodigoAccesoAsync(string codigoAcceso)
     {
         var sala = await _repository.GetByCodigoAccesoAsync(codigoAcceso);
-        return sala == null ? null : MapToDto(sala);
+        return sala == null ? null : await MapToDtoAsync(sala);
     }
 
     public async Task<SalaDto> CreateAsync(string? duenoId, CreateSalaDto dto)
@@ -45,7 +52,7 @@ public class SalaService : ISalaService
         };
 
         var created = await _repository.CreateAsync(sala);
-        return MapToDto(created);
+        return await MapToDtoAsync(created);
     }
 
     public async Task<SalaDto?> UpdateAsync(string id, UpdateSalaDto dto)
@@ -60,11 +67,12 @@ public class SalaService : ISalaService
             Estado = dto.Estado != null ? Enum.Parse<EstadoSala>(dto.Estado) : existing.Estado,
             PeliculaActualId = dto.PeliculaActualId ?? existing.PeliculaActualId,
             DuenoId = existing.DuenoId,
+            PeliculasParaVotar = dto.PeliculasParaVotar ?? existing.PeliculasParaVotar,
             FechaCreacion = existing.FechaCreacion
         };
 
         var result = await _repository.UpdateAsync(id, updated);
-        return result == null ? null : MapToDto(result);
+        return result == null ? null : await MapToDtoAsync(result);
     }
 
     public async Task<bool> DeleteAsync(string id)
@@ -81,13 +89,25 @@ public class SalaService : ISalaService
             .ToArray());
     }
 
-    private static SalaDto MapToDto(Sala sala) => new()
+    private async Task<SalaDto> MapToDtoAsync(Sala sala)
     {
-        Id = sala.Id,
-        CodigoAcceso = sala.CodigoAcceso,
-        Estado = sala.Estado.ToString(),
-        PeliculaActualId = sala.PeliculaActualId,
-        DuenoId = sala.DuenoId,
-        FechaCreacion = sala.FechaCreacion
-    };
+        string? duenoUsername = null;
+        if (!string.IsNullOrEmpty(sala.DuenoId))
+        {
+            var usuario = await _usuarioRepository.GetByIdAsync(sala.DuenoId);
+            duenoUsername = usuario?.Username;
+        }
+
+        return new SalaDto
+        {
+            Id = sala.Id,
+            CodigoAcceso = sala.CodigoAcceso,
+            Estado = sala.Estado.ToString(),
+            PeliculaActualId = sala.PeliculaActualId,
+            DuenoId = sala.DuenoId,
+            DuenoUsername = duenoUsername,
+            PeliculasParaVotar = sala.PeliculasParaVotar,
+            FechaCreacion = sala.FechaCreacion
+        };
+    }
 }

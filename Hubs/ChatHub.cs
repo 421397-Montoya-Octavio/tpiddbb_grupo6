@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using WatchParty.Models.DTOs;
 using WatchParty.Models;
@@ -5,6 +6,7 @@ using WatchParty.Services;
 
 namespace WatchParty.Hubs;
 
+// 1. QUITAMOS EL [Authorize] DE AQUÍ ARRIBA
 public class ChatHub : Hub
 {
     private readonly IMensajeChatService _mensajeService;
@@ -25,6 +27,7 @@ public class ChatHub : Hub
         _redisService = redisService;
     }
 
+    // Método libre: cualquiera puede entrar a la sala
     public async Task JoinSala(string salaId)
     {
         var sala = await _salaService.GetByIdAsync(salaId);
@@ -34,12 +37,12 @@ public class ChatHub : Hub
         }
 
         await Groups.AddToGroupAsync(Context.ConnectionId, salaId);
-        
+
         _connectionSalaMap[Context.ConnectionId] = salaId;
 
         var username = GetUsername();
         await _redisService.AgregarParticipante(salaId, Context.ConnectionId, username);
-        
+
         var participantes = await _redisService.GetParticipantes(salaId);
         await Clients.Caller.SendAsync("ParticipantesActualizados", participantes);
 
@@ -52,19 +55,22 @@ public class ChatHub : Hub
         });
     }
 
+    // Método libre: cualquiera puede salir
     public async Task LeaveSala(string salaId)
     {
         await Groups.RemoveFromGroupAsync(Context.ConnectionId, salaId);
         await _redisService.QuitarParticipante(salaId, Context.ConnectionId);
         _connectionSalaMap.Remove(Context.ConnectionId);
-        
-        await Clients.Group(salaId).SendAsync("ParticipanteDesconectado", new 
-        { 
+
+        await Clients.Group(salaId).SendAsync("ParticipanteDesconectado", new
+        {
             connectionId = Context.ConnectionId,
-            salaId 
+            salaId
         });
     }
 
+    // 2. PROTEGEMOS ESTE MÉTODO: Solo registrados chatean
+    [Authorize]
     public async Task EnviarMensaje(string salaId, string contenido)
     {
         var userId = GetUserId();
@@ -77,10 +83,12 @@ public class ChatHub : Hub
         };
 
         var mensaje = await _mensajeService.CreateAsync(userId, username, dto);
-        
+
         await Clients.Group(salaId).SendAsync("RecibirMensaje", mensaje);
     }
 
+    // 2. PROTEGEMOS ESTE MÉTODO
+    [Authorize]
     public async Task IniciarVotacion(string salaId, List<string> peliculaIds)
     {
         var sala = await _salaService.GetByIdAsync(salaId);
@@ -104,10 +112,12 @@ public class ChatHub : Hub
         await Clients.Group(salaId).SendAsync("VotacionIniciada", votacion);
     }
 
+    // 2. PROTEGEMOS ESTE MÉTODO
+    [Authorize]
     public async Task Votar(string votacionId, string peliculaId)
     {
         var userId = GetUserId();
-        
+
         var dto = new VotarDto
         {
             VotacionId = votacionId,
@@ -121,43 +131,50 @@ public class ChatHub : Hub
         }
     }
 
+    // Método libre
     public async Task<string?> ObtenerVotacionActiva(string salaId)
     {
         var votacion = await _votacionService.GetActivaBySalaIdAsync(salaId);
         return votacion?.Id;
     }
 
+    // 2. PROTEGEMOS ESTE MÉTODO
+    [Authorize]
     public async Task ActualizarSala(string salaId, object salaData)
     {
         await Clients.Group(salaId).SendAsync("SalaActualizada", salaData);
     }
 
+    // Método libre
     public async Task<List<ParticipanteInfo>> ObtenerParticipantes(string salaId)
     {
         return await _redisService.GetParticipantes(salaId);
     }
 
+    // Método libre
     public async Task<SalaDto?> GetSalaInfo(string salaId)
     {
         return await _salaService.GetByIdAsync(salaId);
     }
 
+    // Método libre (se dispara automático al cerrar pestaña)
     public override async Task OnDisconnectedAsync(Exception? exception)
     {
         if (_connectionSalaMap.TryGetValue(Context.ConnectionId, out var salaId))
         {
             await _redisService.QuitarParticipante(salaId, Context.ConnectionId);
-            await Clients.Group(salaId).SendAsync("ParticipanteDesconectado", new 
-            { 
+            await Clients.Group(salaId).SendAsync("ParticipanteDesconectado", new
+            {
                 connectionId = Context.ConnectionId,
-                salaId 
+                salaId
             });
             _connectionSalaMap.Remove(Context.ConnectionId);
         }
-        
+
         await base.OnDisconnectedAsync(exception);
     }
 
+    // --- MÉTODOS PRIVADOS DE AYUDA ---
     private string GetUserId()
     {
         var userIdClaim = Context.User?.FindFirst("NameIdentifier")?.Value;

@@ -21,6 +21,12 @@ public class UsuarioService : IUsuarioService
 
     public async Task<AuthResponseDto> RegisterAsync(RegisterDto dto)
     {
+        var emailNormalizado = dto.Email.ToLower().Trim();
+        if (!emailNormalizado.EndsWith("@gmail.com") && !emailNormalizado.EndsWith("@hotmail.com"))
+        {
+            throw new InvalidOperationException("Solo se permiten cuentas de @gmail.com o @hotmail.com");
+        }
+
         var existingEmail = await _repository.GetByEmailAsync(dto.Email);
         if (existingEmail != null)
             throw new InvalidOperationException("El email ya está registrado");
@@ -51,7 +57,13 @@ public class UsuarioService : IUsuarioService
 
     public async Task<AuthResponseDto> LoginAsync(LoginDto dto)
     {
-        var usuario = await _repository.GetByEmailAsync(dto.Email);
+        var usuario = await _repository.GetByEmailAsync(dto.Identificador);
+
+        if (usuario == null)
+        {
+            usuario = await _repository.GetByUsernameAsync(dto.Identificador);
+        }
+
         if (usuario == null)
             throw new InvalidOperationException("Credenciales inválidas");
 

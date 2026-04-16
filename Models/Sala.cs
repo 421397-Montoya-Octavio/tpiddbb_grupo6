@@ -22,6 +22,9 @@ public class Sala
     [BsonElement("duenoId")]
     public string? DuenoId { get; set; }
 
+    [BsonElement("peliculasParaVotar")]
+    public List<string> PeliculasParaVotar { get; set; } = new();
+
     [BsonElement("fechaCreacion")]
     public DateTime FechaCreacion { get; set; } = DateTime.UtcNow;
 }

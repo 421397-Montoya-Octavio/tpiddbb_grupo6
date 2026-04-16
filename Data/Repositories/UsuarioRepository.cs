@@ -5,9 +5,9 @@ namespace WatchParty.Data.Repositories;
 
 public class UsuarioRepository : IUsuarioRepository
 {
-    private readonly MongoDbContext _context;
+    private readonly IMongoDbContext _context;
 
-    public UsuarioRepository(MongoDbContext context)
+    public UsuarioRepository(IMongoDbContext context)
     {
         _context = context;
     }

@@ -5,9 +5,9 @@ namespace WatchParty.Data.Repositories;
 
 public class SalaRepository : ISalaRepository
 {
-    private readonly MongoDbContext _context;
+    private readonly IMongoDbContext _context;
 
-    public SalaRepository(MongoDbContext context)
+    public SalaRepository(IMongoDbContext context)
     {
         _context = context;
     }

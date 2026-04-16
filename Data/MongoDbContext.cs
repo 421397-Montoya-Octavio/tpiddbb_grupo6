@@ -3,7 +3,16 @@ using WatchParty.Models;
 
 namespace WatchParty.Data;
 
-public class MongoDbContext
+public interface IMongoDbContext
+{
+    IMongoCollection<Pelicula> Peliculas { get; }
+    IMongoCollection<Usuario> Usuarios { get; }
+    IMongoCollection<Sala> Salas { get; }
+    IMongoCollection<MensajeChat> MensajesChat { get; }
+    IMongoCollection<Votacion> Votaciones { get; }
+}
+
+public class MongoDbContext : IMongoDbContext
 {
     private readonly IMongoDatabase _database;
 
@@ -16,11 +25,11 @@ public class MongoDbContext
         CreateIndexes();
     }
 
-    public IMongoCollection<Pelicula> Peliculas => _database.GetCollection<Pelicula>("peliculas");
-    public IMongoCollection<Usuario> Usuarios => _database.GetCollection<Usuario>("usuarios");
-    public IMongoCollection<Sala> Salas => _database.GetCollection<Sala>("salas");
-    public IMongoCollection<MensajeChat> MensajesChat => _database.GetCollection<MensajeChat>("mensajesChat");
-    public IMongoCollection<Votacion> Votaciones => _database.GetCollection<Votacion>("votaciones");
+    public IMongoCollection<Pelicula> Peliculas => _database.GetCollection<Pelicula>("Peliculas");
+    public IMongoCollection<Usuario> Usuarios => _database.GetCollection<Usuario>("Usuarios");
+    public IMongoCollection<Sala> Salas => _database.GetCollection<Sala>("Salas");
+    public IMongoCollection<MensajeChat> MensajesChat => _database.GetCollection<MensajeChat>("MensajesChat");
+    public IMongoCollection<Votacion> Votaciones => _database.GetCollection<Votacion>("Votaciones");
 
     private void CreateIndexes()
     {

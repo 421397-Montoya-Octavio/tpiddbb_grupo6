@@ -28,6 +28,9 @@ public class Votacion
 
     [BsonElement("estaActiva")]
     public bool EstaActiva { get; set; } = true;
+
+    [BsonElement("usuariosQueVotaron")]
+    public Dictionary<string, string> UsuariosQueVotaron { get; set; } = new();
 }
 
 public class OpcionVotacion

@@ -1,28 +1,35 @@
-using WatchParty.Data.Repositories;
-using WatchParty.Models;
 using WatchParty.Models.DTOs;
 
 namespace WatchParty.Services;
 
 public class MensajeChatService : IMensajeChatService
 {
-    private readonly IMensajeChatRepository _repository;
+    private readonly IRedisService _redisService;
 
-    public MensajeChatService(IMensajeChatRepository repository)
+    public MensajeChatService(IRedisService redisService)
     {
-        _repository = repository;
+        _redisService = redisService;
     }
 
     public async Task<IEnumerable<MensajeChatDto>> GetBySalaIdAsync(string salaId)
     {
-        var mensajes = await _repository.GetBySalaIdAsync(salaId);
-        return mensajes.Select(MapToDto);
+        var mensajesJson = await _redisService.GetMensajesChat(salaId, 100);
+        
+        var mensajes = mensajesJson
+            .Select(json => System.Text.Json.JsonSerializer.Deserialize<MensajeChatDto>(json))
+            .Where(m => m != null)
+            .Select(m => m!)
+            .OrderBy(m => m.Timestamp)
+            .ToList();
+        
+        return mensajes;
     }
 
     public async Task<MensajeChatDto> CreateAsync(string usuarioId, string username, CreateMensajeChatDto dto)
     {
-        var mensaje = new MensajeChat
+        var mensaje = new MensajeChatDto
         {
+            Id = Guid.NewGuid().ToString(),
             SalaId = dto.SalaId,
             UsuarioId = usuarioId,
             Username = username,
@@ -30,22 +37,14 @@ public class MensajeChatService : IMensajeChatService
             Timestamp = DateTime.UtcNow
         };
 
-        var created = await _repository.CreateAsync(mensaje);
-        return MapToDto(created);
+        var mensajeJson = System.Text.Json.JsonSerializer.Serialize(mensaje);
+        await _redisService.AgregarMensajeChat(dto.SalaId, mensajeJson);
+        
+        return mensaje;
     }
 
     public async Task<bool> DeleteAsync(string id)
     {
-        return await _repository.DeleteAsync(id);
+        return true;
     }
-
-    private static MensajeChatDto MapToDto(MensajeChat mensaje) => new()
-    {
-        Id = mensaje.Id,
-        SalaId = mensaje.SalaId,
-        UsuarioId = mensaje.UsuarioId,
-        Username = mensaje.Username,
-        Contenido = mensaje.Contenido,
-        Timestamp = mensaje.Timestamp
-    };
 }

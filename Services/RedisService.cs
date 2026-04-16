@@ -12,6 +12,8 @@ public interface IRedisService
     Task<long> GetContador(string key);
     Task SetContador(string key, long value);
     Task<long> IncrementarYObtener(string key);
+    Task<long> AgregarMensajeChat(string salaId, string mensajeJson);
+    Task<List<string>> GetMensajesChat(string salaId, int cantidad = 20);
 }
 
 public class ParticipanteInfo
@@ -145,5 +147,27 @@ public class RedisService : IRedisService
     {
         var db = GetDb();
         return await db.StringIncrementAsync(key);
+    }
+
+    public async Task<long> AgregarMensajeChat(string salaId, string mensajeJson)
+    {
+        var db = GetDb();
+        var key = $"chat:{salaId}";
+        
+        var length = await db.ListRightPushAsync(key, mensajeJson);
+        
+        await db.ListTrimAsync(key, -100, -1);
+        
+        return length;
+    }
+
+    public async Task<List<string>> GetMensajesChat(string salaId, int cantidad = 20)
+    {
+        var db = GetDb();
+        var key = $"chat:{salaId}";
+        
+        var mensajes = await db.ListRangeAsync(key, -cantidad, -1);
+        
+        return mensajes.Select(m => m.ToString()).ToList();
     }
 }
